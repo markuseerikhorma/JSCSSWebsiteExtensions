@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<p>
+  <button class="js-btn" onclick="searchTextArea();">Search with regexp</button>
+  <textarea id="js-regexp" cols="50" rows="1"  onchange="searchTextArea();"></textarea>
+</p>
+<p>
+  <textarea id="js-input" cols="50" rows="10">
+  
+  </textarea></p><p>
+  <textarea id="js-output" cols="50" rows="10"></textarea>
+</p>
+	<script>
+function gid(m){return document.getElementById(m);}
+	
+function searchTextArea(){	
+	var searchresults=gid("js-input").value.match(new RegExp(gid("js-regexp").value,"gi"))
+	console.log(new RegExp(gid("js-regexp").value,"gi"));
+	var returntext="";
+	if(searchresults){
+	for(var i=0; i<searchresults.length; i++){
+		returntext+=searchresults[i]+"\n";
+	}}
+	gid("js-output").value=returntext;
+
+}
+	</script>
+</body>
